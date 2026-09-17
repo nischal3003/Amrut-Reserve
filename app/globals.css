@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    /* Smooth scrolling is handled by Lenis (SmoothScroll.tsx) instead of the
+       native CSS behavior, which would otherwise fight Lenis's virtual scroll
+       and cause jittery anchor-link jumps. */
+    /* Offset anchor targets so the fixed 84px nav doesn't cover section tops */
+    scroll-padding-top: 84px;
+  }
+
+  body {
+    @apply bg-ivory font-sans text-ink antialiased;
+  }
+
+  /* Section anchor ids sit at the top of each section; keep them clear of nav */
+  section[id] {
+    scroll-margin-top: 84px;
+  }
+
+  /* Hide the native pointer only where a custom cursor actually renders
+     (precise pointers) — touch devices are left untouched. */
+  @media (pointer: fine) {
+    body {
+      cursor: none;
+    }
+
+    a,
+    button {
+      cursor: none;
+    }
+  }
+}
+
+@layer utilities {
+  /* Subtle dot-grid texture, tinted per section so it reads on both light
+     and dark backgrounds without competing with photography or the hero
+     canvas — applied alongside a section's existing bg-* color. */
+  .bg-dots-ink {
+    background-image: radial-gradient(rgba(26, 26, 23, 0.05) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+  .bg-dots-ivory {
+    background-image: radial-gradient(rgba(245, 240, 230, 0.05) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
