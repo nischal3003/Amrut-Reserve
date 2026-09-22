@@ -53,7 +53,7 @@ export function Preloader() {
       {visible && (
         <motion.div
           key="preloader"
-          exit={{ opacity: 0 }}
+          exit={{ y: "-100%" }}
           transition={{ duration: 1.1, ease: EXIT_EASE }}
           className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-[clamp(20px,4vw,36px)] bg-forest"
         >
@@ -78,6 +78,33 @@ export function Preloader() {
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
               transition={{ duration: 0.6, ease: CALM, delay: 0.5 }}
+            />
+            <motion.path
+              d="M50 55 L34 45"
+              stroke="#C9A15F"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 0.3, ease: CALM, delay: 0.75 }}
+            />
+            <motion.path
+              d="M50 73 L34 63"
+              stroke="#C9A15F"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 0.3, ease: CALM, delay: 0.85 }}
+            />
+            <motion.path
+              d="M50 91 L34 81"
+              stroke="#C9A15F"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 0.3, ease: CALM, delay: 0.95 }}
             />
           </svg>
 

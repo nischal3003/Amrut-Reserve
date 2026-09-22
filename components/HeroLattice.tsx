@@ -3,7 +3,8 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Generative forest-green lattice backdrop for the hero.
+ * Generative lattice overlay for the hero, drawn translucent over a
+ * background photo (rendered separately by Hero.tsx).
  *
  * A grid of nodes (spacing ~46px) connected by thin ivory links. Nodes are
  * spring-anchored to their rest position; the pointer pushes nearby nodes,
@@ -15,7 +16,7 @@ import { useEffect, useRef } from "react";
  * painting a single static frame instead of animating.
  */
 
-const FOREST_BG = "#20392c";
+const FOREST_TINT = "rgba(32, 57, 44, 0.55)";
 const IVORY_RGB = "245, 240, 230";
 const BRASS_RGB = "169, 139, 93";
 const SPACING = 46;
@@ -45,7 +46,7 @@ export function HeroLattice() {
     const container = containerRef.current;
     const canvas = canvasRef.current;
     if (!container || !canvas) return;
-    const ctx = canvas.getContext("2d", { alpha: false });
+    const ctx = canvas.getContext("2d", { alpha: true });
     if (!ctx) return;
 
     const reduceMotion =
@@ -120,7 +121,8 @@ export function HeroLattice() {
       pointer.prevY = pointer.y;
       const mouseSpeed = Math.sqrt(pointer.vx * pointer.vx + pointer.vy * pointer.vy);
 
-      ctx.fillStyle = FOREST_BG;
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = FOREST_TINT;
       ctx.fillRect(0, 0, width, height);
 
       // Advance shockwaves

@@ -23,6 +23,14 @@ export function Hero() {
       id="top"
       className="relative flex min-h-screen w-full flex-col justify-center overflow-hidden"
     >
+      <Image
+        src="/hero-tea-hills.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
       <HeroLattice />
 
       {/* Legibility gradient over the canvas */}
