@@ -34,7 +34,6 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: TITLE,
   description: DESCRIPTION,
-  icons: { icon: "/logo-icon-forest.png" },
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,

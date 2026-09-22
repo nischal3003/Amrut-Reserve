@@ -3,8 +3,19 @@
 import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
+type CursorState = "default" | "link" | "image";
+
+const SCALE: Record<CursorState, number> = {
+  default: 1,
+  image: 1.7,
+  link: 2.4,
+};
+
 /**
- * A small dot that follows the pointer and grows over links/buttons.
+ * A small dot that follows the pointer and grows over links/buttons, or
+ * swells a touch less over real content photos (img[alt] that isn't empty —
+ * decorative/background images use alt="" throughout this codebase, so that
+ * doubles as the "isn't just atmosphere" signal without extra markup).
  * mix-blend-difference inverts against whatever's underneath, so the same
  * light dot reads correctly over both dark (forest) and light (ivory)
  * sections without per-section color logic.
@@ -15,7 +26,7 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 export function CustomCursor() {
   const [enabled, setEnabled] = useState(false);
   const [visible, setVisible] = useState(false);
-  const [active, setActive] = useState(false);
+  const [cursorState, setCursorState] = useState<CursorState>("default");
   const x = useMotionValue(-100);
   const y = useMotionValue(-100);
   const springX = useSpring(x, { stiffness: 500, damping: 40, mass: 0.5 });
@@ -32,7 +43,15 @@ export function CustomCursor() {
       x.set(e.clientX);
       y.set(e.clientY);
       setVisible(true);
-      setActive(!!(e.target as HTMLElement).closest("a, button"));
+
+      const target = e.target as HTMLElement;
+      if (target.closest("a, button")) {
+        setCursorState("link");
+      } else if (target.closest('img:not([alt=""])')) {
+        setCursorState("image");
+      } else {
+        setCursorState("default");
+      }
     };
     const onLeave = () => setVisible(false);
 
@@ -53,7 +72,7 @@ export function CustomCursor() {
       className="pointer-events-none fixed left-0 top-0 z-[80] -translate-x-1/2 -translate-y-1/2 mix-blend-difference transition-opacity duration-300"
     >
       <motion.div
-        animate={{ scale: active ? 2.4 : 1 }}
+        animate={{ scale: SCALE[cursorState] }}
         transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
         className="h-3 w-3 rounded-full bg-ivory"
       />

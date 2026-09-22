@@ -60,11 +60,11 @@ export function OurTea() {
                   p.liquor === "liquor-classic" ? "bg-liquor-classic" : "bg-liquor-kadak",
                 ].join(" ")}
               />
-              <span className="font-sans text-[11px] tracking-[0.03em] text-ink/45">
+              <span className="font-sans text-[11px] tracking-[0.03em] text-ink/65">
                 Liquor colour
               </span>
             </div>
-            <p className="m-0 font-sans text-[12px] text-ink/45">{p.sizes}</p>
+            <p className="m-0 font-sans text-[12px] text-ink/65">{p.sizes}</p>
           </Reveal>
         ))}
       </div>

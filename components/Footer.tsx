@@ -86,10 +86,10 @@ export function Footer() {
 
         {/* Bottom row */}
         <div className="flex w-full flex-wrap justify-between gap-3">
-          <span className="font-sans text-[12px] text-ink/45">{footer.copyright}</span>
+          <span className="font-sans text-[12px] text-ink/65">{footer.copyright}</span>
           <div className="flex gap-4">
             {footer.social.map((s) => (
-              <span key={s.label} className="cursor-default font-sans text-[12px] text-ink/50">
+              <span key={s.label} className="cursor-default font-sans text-[12px] text-ink/65">
                 {s.label}
               </span>
             ))}

@@ -14,7 +14,7 @@ const config: Config = {
         ivory: "#F5F0E6",
         parchment: "#EDE6D6",
         brass: "#A98B5D",
-        "brass-deep": "#8A7148",
+        "brass-deep": "#806943",
         ink: "#1A1A17",
         // Product liquor swatches
         "liquor-classic": "#B5651D",
