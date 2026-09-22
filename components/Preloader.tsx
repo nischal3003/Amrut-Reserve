@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { CALM } from "./Reveal";
 
@@ -10,6 +10,15 @@ const SESSION_KEY = "amrut-reserve-preloader-shown";
 // ease-out biased (snaps to full speed immediately), which read as an abrupt
 // yank for a full-panel slide instead of a graceful glide.
 const EXIT_EASE = [0.76, 0, 0.24, 1] as const;
+
+// useEffect only runs after the browser has already painted, so on a repeat
+// visit the full intro (solid panel + logo draw-in) would still flash for
+// one frame before the skip kicked in. useLayoutEffect flushes synchronously
+// before paint, so the skip is invisible instead. It's a no-op on the server
+// (this is a client component, so that's fine — there's nothing to skip
+// during SSR anyway).
+const useIsomorphicLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 /**
  * Brand intro: logo fades in, then the wordmark types in letter by letter,
@@ -26,7 +35,7 @@ export function Preloader() {
   const [visible, setVisible] = useState(true);
   const [showText, setShowText] = useState(false);
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (reduce || sessionStorage.getItem(SESSION_KEY) === "1") {
       setVisible(false);
       return;
