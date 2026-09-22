@@ -5,6 +5,7 @@ import { SmoothScroll } from "@/components/SmoothScroll";
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { CustomCursor } from "@/components/CustomCursor";
 import { Preloader } from "@/components/Preloader";
+import { FallingLeaves } from "@/components/FallingLeaves";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -67,6 +68,7 @@ export default function RootLayout({
         <SmoothScroll />
         <GrainOverlay />
         <CustomCursor />
+        <FallingLeaves />
         {children}
         <Analytics />
       </body>
