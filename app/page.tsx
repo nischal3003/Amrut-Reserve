@@ -15,22 +15,15 @@ export default function Home() {
     <main className="relative bg-ivory">
       <ScrollProgress />
       <Nav />
-      {/* Isolated so its perspective (globals.css) only ever affects
-          #scroll-content's transform — never Nav/ScrollProgress's fixed
-          positioning above. */}
-      <div id="scroll-viewport">
-        <div id="scroll-content">
-          <Hero />
-          <Explainer />
-          <OurTea />
-          <Origin />
-          <Craft />
-          <BrewGuide />
-          <Sustainability />
-          <About />
-          <Footer />
-        </div>
-      </div>
+      <Hero />
+      <Explainer />
+      <OurTea />
+      <Origin />
+      <Craft />
+      <BrewGuide />
+      <Sustainability />
+      <About />
+      <Footer />
     </main>
   );
 }

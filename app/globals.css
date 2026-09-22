@@ -15,21 +15,6 @@
     @apply bg-ivory font-sans text-ink antialiased;
   }
 
-  /* #scroll-viewport (app/page.tsx) wraps only the scrolling sections, not
-     Nav/ScrollProgress — `perspective` establishes a containing block for
-     fixed-position descendants, so scoping it here (rather than on body)
-     keeps the fixed nav from being pulled into #scroll-content's transform. */
-  #scroll-viewport {
-    perspective: 1400px;
-  }
-
-  /* SmoothScroll.tsx sets this transform every frame; the top-edge pivot
-     matches the fixed nav sitting just above it. */
-  #scroll-content {
-    will-change: transform;
-    transform-origin: center top;
-  }
-
   /* Section anchor ids sit at the top of each section; keep them clear of nav */
   section[id] {
     scroll-margin-top: 84px;
