@@ -15,6 +15,24 @@
     @apply bg-ivory font-sans text-ink antialiased;
   }
 
+  /* Branded text selection, replacing the OS-default blue highlight.
+     Forcing a dark `color` keeps selected text legible regardless of
+     whether it sits on a light (ivory) or dark (forest) section. */
+  ::selection {
+    background-color: rgba(169, 139, 93, 0.4);
+    color: #1a1a17;
+  }
+
+  /* Keyboard-only focus ring (mouse/touch users never trigger :focus-visible)
+     in the brand's brass rather than the browser's default blue — the custom
+     cursor already replaces the mouse affordance, so this is what keyboard
+     navigation gets instead. */
+  :focus-visible {
+    outline: 2px solid theme("colors.brass");
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
   /* Section anchor ids sit at the top of each section; keep them clear of nav */
   section[id] {
     scroll-margin-top: 84px;
