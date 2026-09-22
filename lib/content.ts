@@ -140,6 +140,14 @@ export const about = {
   bgAlt: "Rows of tea bushes",
 };
 
+export const notFound = {
+  eyebrow: "404",
+  heading: "This Page Has Wandered Off The Estate",
+  body: "The page you're looking for doesn't exist, or may have moved. Let's get you back.",
+  ctaPrimary: "Back to Home",
+  ctaSecondary: "Explore the Reserve",
+};
+
 export const footer = {
   tagline: brand.taglineSentence,
   explore: [
