@@ -1,5 +1,6 @@
 import { Nav } from "@/components/Nav";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import { BackToTop } from "@/components/BackToTop";
 import { Hero } from "@/components/Hero";
 import { Explainer } from "@/components/Explainer";
 import { OurTea } from "@/components/OurTea";
@@ -24,6 +25,7 @@ export default function Home() {
       <Sustainability />
       <About />
       <Footer />
+      <BackToTop />
     </main>
   );
 }
