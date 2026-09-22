@@ -29,8 +29,14 @@ const useIsomorphicLayoutEffect =
  * `visible` starts `true` unconditionally (rather than reading sessionStorage
  * in the initializer) so the server-rendered markup and the client's first
  * render always agree — the skip check happens in an effect instead.
+ *
+ * `onDone` fires the moment `visible` flips to false (skip or real finish),
+ * not when the exit slide itself completes — it's the signal callers use to
+ * defer their own main-thread-heavy mounts (Lenis's rAF loop, the grain
+ * overlay's blend-mode filter) so they aren't competing with the logo's
+ * draw-in animation for frames.
  */
-export function Preloader() {
+export function Preloader({ onDone }: { onDone?: () => void }) {
   const reduce = useReducedMotion();
   const [visible, setVisible] = useState(true);
   const [showText, setShowText] = useState(false);
@@ -38,6 +44,7 @@ export function Preloader() {
   useIsomorphicLayoutEffect(() => {
     if (reduce || sessionStorage.getItem(SESSION_KEY) === "1") {
       setVisible(false);
+      onDone?.();
       return;
     }
 
@@ -45,12 +52,16 @@ export function Preloader() {
     const t1 = setTimeout(() => setShowText(true), 800);
     const t2 = setTimeout(() => {
       setVisible(false);
+      onDone?.();
       sessionStorage.setItem(SESSION_KEY, "1");
     }, 2500);
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
     };
+    // onDone is passed a fresh arrow function each render by design (see
+    // AmbientEffects) — only re-running this for `reduce` changes is correct.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reduce]);
 
   useEffect(() => {

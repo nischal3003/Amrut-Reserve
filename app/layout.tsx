@@ -1,11 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-import { SmoothScroll } from "@/components/SmoothScroll";
-import { GrainOverlay } from "@/components/GrainOverlay";
-import { CustomCursor } from "@/components/CustomCursor";
-import { Preloader } from "@/components/Preloader";
-import { FallingLeaves } from "@/components/FallingLeaves";
+import { AmbientEffects } from "@/components/AmbientEffects";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -63,11 +59,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
       <body>
-        <Preloader />
-        <SmoothScroll />
-        <GrainOverlay />
-        <CustomCursor />
-        <FallingLeaves />
+        <AmbientEffects />
         {children}
         <Analytics />
       </body>
