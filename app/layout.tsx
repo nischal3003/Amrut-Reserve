@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { CustomCursor } from "@/components/CustomCursor";
@@ -38,8 +39,7 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     url: "/",
     siteName: "Amrut Reserve",
-    // TODO(client): swap for a dedicated 1200x630 social share image.
-    images: [{ url: "/product-tea-1.jpg", width: 1200, height: 630, alt: "Amrut Reserve tea" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Amrut Reserve tea estate" }],
     locale: "en_IN",
     type: "website",
   },
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
-    images: ["/product-tea-1.jpg"],
+    images: ["/og-image.jpg"],
   },
 };
 
@@ -68,6 +68,7 @@ export default function RootLayout({
         <GrainOverlay />
         <CustomCursor />
         {children}
+        <Analytics />
       </body>
     </html>
   );
