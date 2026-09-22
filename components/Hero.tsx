@@ -24,7 +24,7 @@ export function Hero() {
       className="relative flex min-h-screen w-full flex-col justify-center overflow-hidden"
     >
       <Image
-        src="/hero-tea-hills.jpg"
+        src="/hero-tea-garden.jpg"
         alt=""
         fill
         priority
