@@ -48,12 +48,12 @@ export function Hero() {
           {...rise(0.1)}
           className="flex flex-wrap items-center justify-center gap-[10px]"
         >
-          <span className="inline-block h-px w-7 bg-brass" />
-          <span className="font-sans text-[12px] font-medium uppercase tracking-[0.18em] text-brass">
+          <span className="inline-block h-px w-7 bg-brass shadow-[0_1px_3px_rgba(15,26,20,0.7)]" />
+          <span className="font-sans text-[12px] font-medium uppercase tracking-[0.18em] text-brass [text-shadow:0_1px_4px_rgba(15,26,20,0.7)]">
             {hero.eyebrow[0]}
           </span>
-          <span className="inline-block h-[3px] w-[3px] rounded-full bg-brass opacity-60" />
-          <span className="font-sans text-[12px] font-medium uppercase tracking-[0.18em] text-brass">
+          <span className="inline-block h-[3px] w-[3px] rounded-full bg-brass opacity-60 shadow-[0_1px_3px_rgba(15,26,20,0.7)]" />
+          <span className="font-sans text-[12px] font-medium uppercase tracking-[0.18em] text-brass [text-shadow:0_1px_4px_rgba(15,26,20,0.7)]">
             {hero.eyebrow[1]}
           </span>
         </motion.div>
@@ -67,7 +67,7 @@ export function Hero() {
 
         <motion.p
           {...rise(0.4)}
-          className="m-0 max-w-[480px] font-sans text-[clamp(12px,1.3vw,14px)] font-medium uppercase leading-[1.6] tracking-[0.14em] text-brass"
+          className="m-0 max-w-[480px] font-sans text-[clamp(12px,1.3vw,14px)] font-medium uppercase leading-[1.6] tracking-[0.14em] text-brass [text-shadow:0_1px_4px_rgba(15,26,20,0.7)]"
         >
           {hero.tagline}
         </motion.p>
