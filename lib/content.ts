@@ -97,8 +97,8 @@ export const origin = {
   eyebrow: "Where It Grows",
   heading: "Origin & Estate",
   body: [
-    `Sourced from the tea gardens of Assam, India. ${NEEDS_CLIENT_COPY} — estate name, exact location, elevation, and terroir notes.`,
-    `${NEEDS_CLIENT_COPY} — a short line on the estate's history or growing conditions.`,
+    "Grown in Sivasagar district, Upper Assam — in the historic Moran–Sepon tea belt on the south bank of the Brahmaputra. Low-lying plains, rich loamy soil, generous rainfall and a warm, humid climate give Assam tea its signature character.",
+    "The result is a strong, full-bodied cup — malty, brisk and deep amber in colour — with the strength to hold its own through milk and sugar. Exactly what a good Indian chai needs.",
   ],
   image: "/origin-estate.jpg" as string | null,
   imageAlt: "Misty tea-growing hills of the estate",
@@ -132,10 +132,9 @@ export const sustain = {
 
 export const about = {
   eyebrow: "The Brand",
-  // FICTIONAL placeholder story — confirm with client before launch, see README.
-  quote:
-    "Amrut Reserve began with a simple promise — never compromise on what goes into the cup. Three generations of our family have walked these Assam gardens, and every batch we release still carries that same insistence on purity and character.",
-  byline: "Harsh Mayavanshi & Rachit Mayavanshi, Founders, Amrut Reserve",
+  // Full brand story to be finalised with the client on a call — see README.
+  quote: "Reserved by name. Made for everyone.",
+  byline: "Mayavanshi & Sons, Founders of Amrut Reserve",
   bgImage: "/about-tea-rows.jpg",
   bgAlt: "Rows of tea bushes",
 };
@@ -157,9 +156,9 @@ export const footer = {
     { label: "Sustainability", href: "#sustain" },
     { label: "About", href: "#about" },
   ],
-  // FICTIONAL placeholder — confirm real contact details with client before launch.
+  // Placeholder email — real address to be set once the domain is onboarded.
   contactEmail: "hello@amrutreserve.com",
-  contactLocation: "Assam, India",
+  contactLocation: "Grown in Assam · Packed in Anand, Gujarat",
   copyright: "© 2026 Amrut Reserve. All rights reserved.",
   // Placeholder handles — not linked until real accounts are confirmed.
   social: [

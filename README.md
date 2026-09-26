@@ -70,16 +70,14 @@ Tailwind keyframes. `prefers-reduced-motion` is respected (hero canvas paints a 
 
 Copy is centralized in `lib/content.ts`; every gap is marked there.
 
-- **Origin** — estate name, location, elevation, terroir notes; estate history/growing-conditions line.
-- **Craft** — step descriptions are generic CTC-process copy, not estate-specific — confirm they match actual practice (timings, methods) before launch.
-- **Sustainability** — the three commitment claims are **draft/illustrative**; confirm or replace with verified claims.
-- **About** — founder/brand-story quote and byline are currently **fictional placeholder text** (names: Harsh Mayavanshi & Rachit Mayavanshi) — confirm real names and replace the quote with an approved story before launch.
-- **Footer** — contact email/location are fictional placeholders (`hello@amrutreserve.com`, Assam, India) — confirm real details before launch. Real IG / X handles still needed (currently unlinked placeholders).
-- **Brewing Guide** (`lib/content.ts` → `brew`) — water temp/steep time/ratio are generic CTC brewing guidance, not verified against this specific estate's tea — confirm before launch.
+- **Origin** — done (Sivasagar district, Moran–Sepon belt). Estate name is confidential — keep it off the site.
+- **About** — short quote ("Reserved by name. Made for everyone.") and byline (Mayavanshi & Sons) are client-approved; the full brand story is to be finalised with the client on a call.
+- **Footer** — contact email is a placeholder until the domain is onboarded. IG / X handles still needed (currently unlinked).
+- **Craft, Sustainability, Brewing Guide** — client confirmed as correct.
 
 ### Photography
 
 Origin and Sustainability photos have been supplied and are wired up (`origin-estate.jpg`,
 `sustain-pickers.jpg`). If either needs to change, drop the new file into `public/` and update
-`origin.image` / `sustain.image` in `lib/content.ts`. **Do not substitute stock photography without
-checking with the client.**
+`origin.image` / `sustain.image` in `lib/content.ts`. The client is happy with the current photos; replacing them is fine only with
+clearly licensed, copyright-safe images.
